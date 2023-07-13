@@ -10,6 +10,6 @@ export const deleteEmployee = asyncHandler(async (req, res) => {
       .status(200)
       .json({ message: "employee deleted successfully", success: true });
   } catch (error) {
-    res.status(500).json({ message: error.message, success: false });
+    res.status(500).json({ message: "server error", success: false });
   }
 });

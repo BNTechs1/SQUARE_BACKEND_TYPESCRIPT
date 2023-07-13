@@ -1,5 +1,4 @@
 export interface Employee {
-  userName: string
   fullName: string;
   email: string;
   phoneNumber: string;
@@ -7,5 +6,6 @@ export interface Employee {
   emergencyContact: string;
   salary: number;
   position: string;
+  role: string
 }
 

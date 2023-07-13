@@ -1,11 +1,6 @@
 import { Schema, model } from "mongoose";
 
 const employeeSchema = new Schema({
-  userName: {
-    type: String,
-    required: [true, "Username is required."],
-    minlength: 3,
-  },
   fullName: {
     type: String,
     required: [true, "Username is required."],
@@ -13,7 +8,6 @@ const employeeSchema = new Schema({
   },
   email: {
     type: String,
-    required: [true, "Email is required."],
   },
   phoneNumber: {
     type: String,
@@ -37,6 +31,10 @@ const employeeSchema = new Schema({
     type: String,
     required: [true, "position is required."],
   },
+  role:{
+    type:String, 
+    default: "NOT_USER"
+  }
 });
 
 export default model("Employee", employeeSchema);

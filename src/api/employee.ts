@@ -8,10 +8,10 @@ import {
 } from "../controller/employee/index.employee.controller";
 const router = express.Router();
 
+router.post("/create", createEmployee);
 router.get("/get", getEmployees);
 router.get("/show/:id", getEmployee);
-router.get("/create", createEmployee);
-router.get("/update", updateEmployee);
-router.get("/delete", deleteEmployee);
+router.put("/update", updateEmployee);
+router.delete("/delete", deleteEmployee);
 
 export default router;

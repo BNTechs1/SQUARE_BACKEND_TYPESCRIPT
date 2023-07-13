@@ -1,10 +1,9 @@
-import asyncHandler from "express-async-handler";
+import { Request, Response } from "express";
 import EmployeeModel from "../../model/employee";
 // import  user from "../../model/user"
-export const createEmployee = asyncHandler(async (req, res) => {
+export const createEmployee = async (req: Request, res: Response) => {
   const {
     fullName,
-    userName,
     email,
     phoneNumber,
     address,
@@ -20,7 +19,6 @@ export const createEmployee = asyncHandler(async (req, res) => {
   if (!verifyEmployee) {
     await new EmployeeModel({
       fullName,
-      userName,
       email,
       phoneNumber,
       address,
@@ -38,4 +36,4 @@ export const createEmployee = asyncHandler(async (req, res) => {
       success: false,
     });
   }
-});
+};
