@@ -1,13 +1,28 @@
 import { Schema, model } from "mongoose";
 
 const userSchema = new Schema({
-  userId: { type: String, required: true },
-  telegramId: { type: Number, required: true },
-  fullName: { type: String, required: true },
-  userName: { type: String },
-  phoneNumber: { type: String, required: true },
-  email: { type: String, required: true },
-  role: { type: String, enum: ["ADMIN", "USER"], required: true },
+  phoneNumber: {
+    type: String,
+    required: [true, "phoneNumber name is required."],
+    minlength: 9,
+  },
+  password: {
+    type: String,
+    required: [true, "Password is required"],
+  },
+  role: {
+    type: String,
+    required: [true, "Please Specify user Role"],
+    // ADMIN // CASHER // PURCHASER //CUSTOMER
+  },
+  employeeId: {
+    type: String,
+    required: true,
+  },
+  created: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 export default model("User", userSchema);
