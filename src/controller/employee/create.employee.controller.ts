@@ -1,7 +1,6 @@
 import asyncHandler from "express-async-handler";
 import EmployeeModel from "../../model/employee";
 // import  user from "../../model/user"
-
 export const createEmployee = asyncHandler(async (req, res) => {
   const {
     fullName,
