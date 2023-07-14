@@ -17,7 +17,6 @@ export const register = async (req: Request, res: Response) => {
     const { role, employeeId } = req.body;
 
     const verifyEmployee = await showEmployee(employeeId)
-    console.log("verifyEmployee", verifyEmployee)
     if(!verifyEmployee){
         return res.status(404).json({
             message: "employee not found", 
