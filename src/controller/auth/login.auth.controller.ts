@@ -16,9 +16,9 @@ export const login = async (req: Request, res: Response) => {
 
   //created a variable to assign the user
   //   let getUser = {}
-  const phone = phoneNumber.slice(-9);
+  // const phone = phoneNumber.slice(-9);
   //verifying that the user with the email exist or not
-  const getUser:User|null = await UserModel.findOne({phoneNumber: phone})
+  const getUser:User|null = await UserModel.findOne({phoneNumber: phoneNumber})
   if (!getUser) {
         //if user does not exist responding Authentication Failed
         return res.status(403).json({
