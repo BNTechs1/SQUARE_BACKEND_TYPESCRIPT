@@ -6,6 +6,7 @@ import {
   updateEmployee,
   deleteEmployee,
 } from "../controller/employee/index.employee.controller";
+// import { authJWT } from "../middleware/authJWT"
 const router = express.Router();
 
 router.post("/create", createEmployee);
