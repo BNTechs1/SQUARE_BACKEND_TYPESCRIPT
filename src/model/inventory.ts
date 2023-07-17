@@ -14,7 +14,7 @@ const stackSchema = new Schema({
     type: Number,
     required: [true, "value is required."],
   },
-  userID: {
+  userId: {
     type: String,
     required: [true, "user Id is required."],
   },
@@ -23,7 +23,7 @@ const stackSchema = new Schema({
     required: [true, "username is required."],
   },
 });
-const inventorySchema = new Schema({
+const inventorySchema  = new Schema({
   name: {
     type: String,
     required: [true, "name is required."],
