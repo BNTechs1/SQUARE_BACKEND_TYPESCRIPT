@@ -1,7 +1,13 @@
 // import { NextFunction, Request, Response } from "express";
 
-interface IncomingMessage extends Request {
-  userData: string | jwt.JwtPayload;
+export interface IncomingMessage extends Request {
+  userData?: UserDataType | jwt.JwtPayload | string ;
+}
+
+export interface UserDataType {
+  accessToken: string;
+  employeeId: string;
+  role: string;
 }
 
 import { NextFunction, Request, Response } from "express";
