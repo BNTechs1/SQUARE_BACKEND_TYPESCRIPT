@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 import InventoryModel from "../../model/inventory";
 import { showItem } from "../../utils/db_functions/inventory.db";
-import { Item } from "../../interfaces/inventory";
+import { Item } from "../../interfaces/inventory.interface";
 
 export const update = async (req: Request, res: Response) => {
-  const { name, unit, value, requiredValue, rate, quantity }: Item = req.body;
+  const { name, unit, requiredValue, rate, quantity }: Item = req.body;
   const { id } = req.params;
   let updatedInventory;
   const verifyItem = await showItem(id);
@@ -20,6 +20,7 @@ export const update = async (req: Request, res: Response) => {
     const diffquantity = verifyItem.quantity - quantity;
     verifyItem.value = verifyItem.value - diffquantity * rate;
     verifyItem.quantity = verifyItem.quantity - diffquantity;
+
     updatedInventory = {
       name,
       unit,
@@ -37,7 +38,9 @@ export const update = async (req: Request, res: Response) => {
   } else {
     const diffquantity = quantity - verifyItem.quantity;
     verifyItem.value = verifyItem.value + diffquantity * rate;
+
     verifyItem.quantity = verifyItem.quantity + diffquantity;
+
     updatedInventory = {
       name,
       unit,

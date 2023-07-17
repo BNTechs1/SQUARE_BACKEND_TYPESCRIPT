@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import InventoryModel from "../../model/inventory";
 import { showItem } from "../../utils/db_functions/inventory.db";
 import { getAllMenus } from "../../utils/db_functions/menu.db";
-import { Item } from "../../interfaces/inventory";
+import { Item } from "../../interfaces/inventory.interface";
 
 export const deleteInventory = async (req: Request, res: Response) => {
   const { id } = req.params;
