@@ -7,3 +7,7 @@ export async function getAllUsers() {
 export async function showUsers(id: string) {
     return await UserModel.findOne({_id: id})
 }
+
+export async function checkemployee(id: string) {
+    return await UserModel.findOne({employeeId: id})
+}
