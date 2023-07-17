@@ -6,7 +6,7 @@ export const connectToDB = async () => {
   try {
     console.log("Connecting to MongoDB ......");
     const DBConnection = await mongoose.connect(
-      "mongodb+srv://square:Bnsquare101@square.n0h2qw9.mongodb.net/square",
+      "mongodb+srv://square:square@cluster0.3rcyw2e.mongodb.net/",
       {
         // useNewUrlParser: true,
         // useCreateIndex: true,
