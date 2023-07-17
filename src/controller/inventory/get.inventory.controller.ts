@@ -7,14 +7,13 @@ import {
 // import  user from "../../model/user"
 
 export const getinventories = async (req: Request, res: Response) => {
-  const inventory = getAllItems()
+  const inventory = await getAllItems()
   res.status(200).send(inventory);
 };
 
 export const getinventory = async (req: Request, res: Response) => {
-  // const { id } = req.userData
-  const id = "1212112211";
-  const inventory = showItem(id);
+  const { id } = req.params
+  const inventory = await showItem(id);
   res.status(200).send(inventory);
 };
 

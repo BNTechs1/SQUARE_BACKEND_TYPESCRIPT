@@ -12,8 +12,7 @@ export const getEmployees = async (req: Request, res: Response) => {
 };
 
 export const getEmployee = async (req: Request, res: Response) => {
-  // const { id } = req.userData
-  const id = "1212112211";
-  const employee = showEmployee(id);
+  const { id } = req.params
+  const employee = await showEmployee(id);
   res.status(200).send(employee);
 };
