@@ -6,13 +6,13 @@ import {
   updateEmployee,
   deleteEmployee,
 } from "../controller/employee/index.employee.controller";
-// import { authJWT } from "../middleware/authJWT"
+import { authJWT } from "../middleware/authJWT";
 const router = express.Router();
 
-router.post("/create", createEmployee);
-router.get("/get", getEmployees);
-router.get("/show/:id", getEmployee);
-router.put("/update/:id", updateEmployee);
-router.delete("/delete/:id", deleteEmployee);
+router.post("/create", authJWT, createEmployee);
+router.get("/get", authJWT, getEmployees);
+router.get("/show/:id", authJWT, getEmployee);
+router.put("/update/:id", authJWT, updateEmployee);
+router.delete("/delete/:id", authJWT, deleteEmployee);
 
 export default router;
