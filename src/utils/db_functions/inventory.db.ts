@@ -5,7 +5,9 @@ export async function getAllItems() {
 }
 
 export async function showItem(id: string) {
-    return await InventoryModel.findOne({_id: id}) as Item;
+    const item = await InventoryModel.findOne({_id: id}) as Item;
+    return item
+   
 }
 
 export async function showItembyName(name: string) {

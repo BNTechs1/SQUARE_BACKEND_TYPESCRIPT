@@ -1,5 +1,6 @@
+import mongoose from "mongoose";
 
-export interface Item {
+export interface Item extends mongoose.Document {
   name: string;
   unit: string;
   quantity: number;
@@ -10,9 +11,9 @@ export interface Item {
 }
 
 export interface Stack {
-  price: string;
+  price: number;
   quantity: number;
   value: number;
-  userID: string;
+  userId: string;
   userName: string;
 }
