@@ -13,7 +13,7 @@ export const createEmployee = async (req: Request, res: Response) => {
   } = req.body;
 
   const verifyEmployee = await EmployeeModel.findOne({
-    userName: req.body.userName,
+    phoneNumber: req.body.phoneNumber,
   });
 
   if (!verifyEmployee) {
