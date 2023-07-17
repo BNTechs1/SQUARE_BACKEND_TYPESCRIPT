@@ -1,13 +1,18 @@
 import { create } from "./create.inventoroy.controller";
-import { getinventories, getinventory, getPurchases } from "./get.inventory.controller";
+import {
+  getinventories,
+  getinventory,
+  getPurchases,
+} from "./get.inventory.controller";
 import { update } from "./update.inventory.controller";
 import { deleteInventory } from "./delete.inventory.controller";
-
+import { stack } from "./stack.inventory.controller";
 export {
-    create,
-    getinventories,
-    getinventory,
-    getPurchases,
-    update,
-    deleteInventory,
+  create,
+  getinventories,
+  getinventory,
+  getPurchases,
+  update,
+  deleteInventory,
+  stack,
 };
