@@ -7,7 +7,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
 // Importing usermodel from user
-import UserModel from "../../model/user";
+import UserModel from "../../model/user.model";
 import { User } from "../../interfaces/user.interface";
 
 export const login = async (req: Request, res: Response) => {
@@ -36,6 +36,8 @@ export const login = async (req: Request, res: Response) => {
           {
             employeeId: getUser.employeeId,
             role: getUser.role,
+            firstTimeLogin: getUser.firstTimeLogin
+
           },
           //Signign the token with the JWT_SECRET in the .env
           process.env.JWT_SECRET as string,
@@ -47,6 +49,8 @@ export const login = async (req: Request, res: Response) => {
           accessToken: jwtToken,
           employeeId: getUser.employeeId,
           role: getUser.role,
+          firstTimeLogin: getUser.firstTimeLogin
+
         })
       }
     })
