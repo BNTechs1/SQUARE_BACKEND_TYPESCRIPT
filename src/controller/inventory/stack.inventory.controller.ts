@@ -1,6 +1,6 @@
-import { Request, Response } from "express";
+import {  Response } from "express";
 import { showEmployee } from "../../utils/db_functions/employee.db";
-import { checkemployee, showUsers } from "../../utils/db_functions/user.db";
+import { checkemployee } from "../../utils/db_functions/user.db";
 import { showItem } from "../../utils/db_functions/inventory.db";
 import { Stack } from "../../interfaces/inventory.interface";
 import { IncomingMessage, UserDataType } from "../../middleware/authJWT";
@@ -31,7 +31,6 @@ export const stack = async (req: IncomingMessage, res: Response) => {
       message: "purchaser not found ",
     });
   }
-  console.log("purchaser", purchaser)
   const eid = purchaser.employeeId
   const user = await showEmployee(eid);
   if (!user) {

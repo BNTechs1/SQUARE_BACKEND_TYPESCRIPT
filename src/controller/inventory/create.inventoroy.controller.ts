@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import InventoryModel from "../../model/inventory";
+import InventoryModel from "../../model/inventory.model";
 
 export const create = async (req: Request, res: Response) => {
   const { name, unit, quantity, rate, requiredValue } = req.body;

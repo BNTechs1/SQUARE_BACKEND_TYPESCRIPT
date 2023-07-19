@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import InventoryModel from "../../model/inventory";
+import InventoryModel from "../../model/inventory.model";
 import { showItem } from "../../utils/db_functions/inventory.db";
 import { Item } from "../../interfaces/inventory.interface";
 

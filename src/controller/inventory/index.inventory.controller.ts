@@ -5,14 +5,16 @@ import {
   getPurchases,
 } from "./get.inventory.controller";
 import { update } from "./update.inventory.controller";
-import { deleteInventory } from "./delete.inventory.controller";
+// import { deleteInventory } from "./delete.inventory.controller";
 import { stack } from "./stack.inventory.controller";
+import {filterStack} from './filters.inventory.controller'
 export {
   create,
   getinventories,
   getinventory,
   getPurchases,
   update,
-  deleteInventory,
+  // deleteInventory,
   stack,
+  filterStack
 };
