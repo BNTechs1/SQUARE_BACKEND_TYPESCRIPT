@@ -7,7 +7,7 @@ import { Request, Response } from "express";
 import bcrypt from 'bcrypt'
 
 //Importing the user model 
-import UserModel from "../../model/user";
+import UserModel from "../../model/user.model";
 
 import { showEmployee } from "../../utils/db_functions/employee.db";
 
