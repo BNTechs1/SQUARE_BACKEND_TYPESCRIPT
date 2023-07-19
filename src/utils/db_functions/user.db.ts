@@ -1,4 +1,4 @@
-import UserModel from "../../model/user";
+import UserModel from "../../model/user.model";
 
 export async function getAllUsers() {
     return await UserModel.find()

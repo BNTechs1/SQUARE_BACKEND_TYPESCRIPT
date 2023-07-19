@@ -1,4 +1,4 @@
-import EmployeeModel from "../../model/employee";
+import EmployeeModel from "../../model/employee.model";
 
 export async function getAllEmployees() {
     return await EmployeeModel.find();
