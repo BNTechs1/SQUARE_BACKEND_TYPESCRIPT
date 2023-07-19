@@ -1,11 +1,6 @@
-export interface menuSchema {
-  menuCat: string;
+export interface Recipe {
   name: string;
-  description: number;
-  rate: number;
   value: number;
-  requiredValue: number;
-  size: Size[];
 }
 
 export interface Size {
@@ -14,7 +9,18 @@ export interface Size {
   recipe: Recipe[];
 }
 
-export interface Recipe {
+export interface Menu {
   name: string;
-  value: number;
+  description: number;
+  size: Size[];
+}
+
+export interface MenuCat {
+  name: string;
+  menu: Menu[];
+}
+
+export interface MenuType {
+  name: string;
+  menuCat: MenuCat[];
 }

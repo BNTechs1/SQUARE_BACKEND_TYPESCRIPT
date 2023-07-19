@@ -3,4 +3,5 @@ export interface User {
   password: string;
   role: "ADMIN" | "CASHER" | "PURCHASER" | "CUSTOMER";
   employeeId: string;
+  firstTimeLogin: boolean
 }

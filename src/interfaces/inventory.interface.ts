@@ -16,4 +16,6 @@ export interface Stack {
   value: number;
   userId: string;
   userName: string;
+  date?:Date
 }
+
