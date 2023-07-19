@@ -15,6 +15,10 @@ const userSchema = new Schema({
     required: [true, "Please Specify user Role"],
     // ADMIN // CASHER // PURCHASER //CUSTOMER
   },
+  firstTimeLogin:{
+    type:Boolean, 
+    default: true
+  }, 
   employeeId: {
     type: String,
     required: true,
@@ -23,6 +27,7 @@ const userSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+
 });
 
 export default model("User", userSchema);

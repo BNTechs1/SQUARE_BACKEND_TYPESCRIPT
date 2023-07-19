@@ -3,7 +3,7 @@ import { Schema, model } from "mongoose";
 // const bcrypt = require("bcryptjs");
 const stackSchema = new Schema({
   price: {
-    type: String,
+    type: Number,
   },
   date: { type: Date, default: Date.now },
   quantity: {
@@ -23,7 +23,7 @@ const stackSchema = new Schema({
     required: [true, "username is required."],
   },
 });
-const inventorySchema  = new Schema({
+const inventorySchema = new Schema({
   name: {
     type: String,
     required: [true, "name is required."],
