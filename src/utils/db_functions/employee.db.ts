@@ -7,3 +7,7 @@ export async function getAllEmployees() {
 export async function showEmployee(id: string) {
     return await EmployeeModel.findOne({_id: id});
 }
+
+export async function showEmployeebyPhone(phoneNumber: string) {
+    return await EmployeeModel.findOne({phoneNumber: phoneNumber});
+}

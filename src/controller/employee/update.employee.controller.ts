@@ -1,12 +1,12 @@
-import asyncHandler from "express-async-handler";
-import EmployeeModel from "../../model/employee";
+import EmployeeModel from "../../model/employee.model";
+import { Request, Response } from "express";
 
-export const updateEmployee = asyncHandler(async (req, res) => {
+export const updateEmployee = async (req: Request, res: Response) => {
   const { id } = req.params;
   const verifyItem = await EmployeeModel.findOne({ _id: id });
 
   if (verifyItem) {
-    await EmployeeModel.updateOne({ _id: req.params.id }, { $set: req.body });
+    await EmployeeModel.updateOne({ _id: id }, { $set: req.body });
     res.status(201).json({
       message: "employee updated successfully",
       success: true,
@@ -17,4 +17,4 @@ export const updateEmployee = asyncHandler(async (req, res) => {
       success: true,
     });
   }
-});
+};
