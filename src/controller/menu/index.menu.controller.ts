@@ -4,6 +4,12 @@ import { createMenu,} from "./create/createMenu.menu.controller";
 import { createSize,} from "./create/createSize.menu.controller";
 import { createRecipe } from "./create/addRecipe.menu.controller";
 
+import { updateMenuCat } from "./update/update.menuCat.controller";
+import { updateMenu } from "./update/updateMenu.menu.controller";
+import { updateSize } from "./update/updateSize.meu.controller";
+
+
+
 // import { createMenuType } from "./create/createSize.menu.controller";
 import { getMenusTypes, showMenuTypes } from "./get.menu.controller";
 
@@ -15,5 +21,10 @@ export {
         getMenusTypes, 
         showMenuTypes, 
         createSize, 
-        createRecipe
+        createRecipe,
+
+        updateMenuCat, 
+        updateMenu,
+        updateSize
+
 };

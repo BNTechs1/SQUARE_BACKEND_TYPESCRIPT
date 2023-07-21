@@ -34,7 +34,7 @@ const inventorySchema = new Schema({
   },
   quantity: {
     type: Number,
-    required: [true, "quantity is required."],
+    default: 0
   },
   rate: {
     type: Number,
@@ -42,7 +42,9 @@ const inventorySchema = new Schema({
   },
   value: {
     type: Number,
-    required: [true, "value is required."],
+    // required: [true, "value is required."],
+    default: 0
+
   },
   requiredValue: {
     type: Number,

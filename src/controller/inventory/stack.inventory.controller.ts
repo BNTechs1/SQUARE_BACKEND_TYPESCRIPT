@@ -1,4 +1,4 @@
-import {  Response } from "express";
+import { Response } from "express";
 import { showEmployee } from "../../utils/db_functions/employee.db";
 import { checkemployee } from "../../utils/db_functions/user.db";
 import { showItem } from "../../utils/db_functions/inventory.db";
@@ -31,7 +31,7 @@ export const stack = async (req: IncomingMessage, res: Response) => {
       message: "purchaser not found ",
     });
   }
-  const eid = purchaser.employeeId
+  const eid = purchaser.employeeId;
   const user = await showEmployee(eid);
   if (!user) {
     return res.status(404).json({
