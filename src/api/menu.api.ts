@@ -9,7 +9,9 @@ import {
   createRecipe,
   updateMenu,
   updateMenuCat,
-  updateSize
+  updateSize, 
+  updateRecipe,
+  showMenu
 } from "../controller/menu/index.menu.controller";
 // import { authJWT } from "../middleware/authJWT";
 const router = express.Router();
@@ -23,10 +25,14 @@ router.post("/createR/:id", createRecipe);
 router.put("/updateC/:id", updateMenuCat);
 router.put("/updateM/:id", updateMenu);
 router.put("/updateS/:id", updateSize);
+router.put("/updateR/:id", updateRecipe);
+
 
 
 router.get("/getT", getMenusTypes);
 router.get("/showT/:id", showMenuTypes);
+router.get("/showM/:id", showMenu);
+
 
 // router.get("/show/:id", authJWT, getEmployee);
 // router.put("/update/:id", authJWT, updateEmployee);

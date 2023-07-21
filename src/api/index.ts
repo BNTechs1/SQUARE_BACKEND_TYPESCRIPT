@@ -5,7 +5,8 @@ import emojis from "./emojis";
 import employee from "./employee.api";
 import auth from "./auth.api";
 import menu from "./menu.api";
-
+import company from "./company.api";
+import table from "./table.api";
 
 import inventory from "./inventory.api";
 
@@ -22,6 +23,7 @@ router.use("/employee", employee);
 router.use("/auth", auth);
 router.use("/inventory", inventory);
 router.use("/menu", menu);
-
+router.use("/company", company);
+router.use("/table", table);
 
 export default router;
