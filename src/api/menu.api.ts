@@ -1,37 +1,30 @@
 import express from "express";
 import {
-  createMenuType,
-  createMenuCat,
-  createMenu,
-  getMenusTypes,
-  showMenuTypes,
-  createSize,
-  createRecipe,
-  updateMenu,
-  updateMenuCat,
-  updateSize, 
-  updateRecipe,
-  showMenu
+  createMenu, 
+  addRecipe, 
+  showMenus, 
+  showRecipes, 
+  getMenu,
+  getAllRecipes, 
+  updateMenu, 
+  updateRecipe
 } from "../controller/menu/index.menu.controller";
 // import { authJWT } from "../middleware/authJWT";
 const router = express.Router();
 
-router.post("/createT", createMenuType);
-router.post("/createC/:id", createMenuCat);
-router.post("/createM/:id", createMenu);
-router.post("/createS/:id", createSize);
-router.post("/createR/:id", createRecipe);
+//Create Routes
+router.post("/create", createMenu);
+router.post("/create-recipe/:id", addRecipe);
 
-router.put("/updateC/:id", updateMenuCat);
-router.put("/updateM/:id", updateMenu);
-router.put("/updateS/:id", updateSize);
-router.put("/updateR/:id", updateRecipe);
+//Update Routes
+router.put("/update/:id", updateMenu);
+router.put("/update-recipe/:id", updateRecipe);
+//Get Routes
+router.get("/get", getMenu);
+router.get("/get-recipe", getAllRecipes);
 
-
-
-router.get("/getT", getMenusTypes);
-router.get("/showT/:id", showMenuTypes);
-router.get("/showM/:id", showMenu);
+router.get("/show/:id", showMenus);
+router.get("/show-recipe/:id", showRecipes);
 
 
 // router.get("/show/:id", authJWT, getEmployee);
