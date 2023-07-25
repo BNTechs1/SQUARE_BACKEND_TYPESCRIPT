@@ -3,23 +3,22 @@ import MenuModel from "../../../model/menu.model";
 import mongoose from "mongoose";
 
 export const updateMenu = async (req: Request, res: Response) => {
-  const { name, description } = req.body;
+  const { name, description, size, catagory, type, price } = req.body;
   const { id } = req.params;
   const menu = await MenuModel.findOneAndUpdate(
-    { "menuCat.menu._id": new mongoose.Types.ObjectId(id) },
+    { _id: new mongoose.Types.ObjectId(id) },
     {
       $set: {
-        "menuCat.$[menuCatElement].menu.$[menuElement].name": name,
-        "menuCat.$[menuCatElement].menu.$[menuElement].description":
-          description,
+        name: name,
+        description: description,
+        size: size,
+        catagory: catagory,
+        type: type,
+        price: price,
       },
     },
     {
       new: true,
-      arrayFilters: [
-        { "menuCatElement.menu._id": new mongoose.Types.ObjectId(id) },
-        { "menuElement._id": new mongoose.Types.ObjectId(id) },
-      ],
     }
   )
     .then((updatedMenu) => {

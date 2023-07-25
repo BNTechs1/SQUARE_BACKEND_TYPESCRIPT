@@ -1,38 +1,20 @@
-import { createMenuType } from "./create/createmenuType.menu.controler";
-import { createMenuCat } from "./create/createmenuCat.menu.controller";
-import { createMenu,} from "./create/createMenu.menu.controller";
-import { createSize,} from "./create/createSize.menu.controller";
-import { createRecipe } from "./create/addRecipe.menu.controller";
+import { createMenu } from "./create/createmenu.menu.controler";
+import { addRecipe } from "./create/addRecipe.menu.controller";
 
-import { updateMenuCat } from "./update/update.menuCat.controller";
 import { updateMenu } from "./update/updateMenu.menu.controller";
-import { updateSize } from "./update/updateSize.meu.controller";
-import { updateRecipe } from "./update/updateRecipe.menu.controller";
-
-
-
+import { updateRecipe } from "./update/update.recipe.controller";
 
 // import { createMenuType } from "./create/createSize.menu.controller";
-import { showMenuTypes, showMenu } from "./get/show.menu.controller";
-import { getAllMenuCategories, getMenusTypes } from "./get/get.menu.controller";
-
-
+import { showMenus, showRecipes } from "./get/show.menu.controller";
+import { getAllRecipes, getMenu } from "./get/get.menu.controller";
 
 export {
-        createMenuType,
-        createMenuCat,
-        createMenu,
-        createSize, 
-        createRecipe,
-
-        getMenusTypes, 
-        showMenuTypes, 
-        showMenu, 
-
-
-        updateMenuCat, 
-        updateMenu,
-        updateSize, 
-        updateRecipe
-
+  createMenu,
+  addRecipe,
+  getMenu,
+  getAllRecipes,
+  showMenus,
+  showRecipes,
+  updateMenu,
+  updateRecipe
 };

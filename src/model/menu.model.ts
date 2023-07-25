@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+
 const recipe = new Schema({
   name: {
     type: String,
@@ -8,41 +9,29 @@ const recipe = new Schema({
   },
 });
 
-const size = new Schema({
-  name: {
+const menuSchema = new Schema({
+  type: {
     type: String,
   },
-  price: {
-    type: Number,
+  catagory: {
+    type: String,
   },
-  recipe: { type: [recipe], default: [] },
-});
-
-const menu = new Schema({
   name: {
     type: String,
     maxlength: 50,
+  }, 
+  size:{
+    type: String,
+    maxlength: 50,
+  }, 
+  price:{
+    type:Number
   },
   description: {
     type: String,
     maxlength: 2000,
   },
-  size: { type: [size], default: [] },
-});
+  recipe: { type: [recipe], default: [] },
+})
 
-const menuCat = new Schema({
-  menuCat: {
-    type: String,
-  },
-
-  menu: { type: [menu], default: [] },
-});
-
-const MenuType = new Schema({
-  menuType: {
-    type: String,
-  },
-  menuCat: { type: [menuCat], default: [] },
-});
-
-export default model("Menu", MenuType);
+export default model("Menu", menuSchema);

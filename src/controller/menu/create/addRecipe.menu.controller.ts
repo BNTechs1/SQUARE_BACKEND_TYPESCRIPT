@@ -1,32 +1,24 @@
 import { Request, Response } from "express";
 import MenuModel from "../../../model/menu.model";
-import mongoose from "mongoose";
-export const createRecipe = async (req: Request, res: Response) => {
+export const addRecipe = async (req: Request, res: Response) => {
   const { id } = req.params;
-  const { name, value } = req.body;
-
-  const updatedRecipe = await MenuModel.findOneAndUpdate(
-    { "menuCat.menu.size._id": new mongoose.Types.ObjectId(id) },
-    {
-      $push: {
-        "menuCat.$[].menu.$[].size.$[sizeElement].recipe": { name, value },
-      },
-    },
-    {
-      new: true,
-      arrayFilters: [{ "sizeElement._id": new mongoose.Types.ObjectId(id) }],
-    }
+  // const { menuCat } = req.body
+  const updatedMenu = await MenuModel.findByIdAndUpdate(
+    id,
+    { $push: { recipe: req.body } },
+    { new: true }
   );
 
-  if (!updatedRecipe) {
+  if (!updatedMenu) {
     return res.status(404).json({
       message: "menu type not found",
       success: false,
     });
   }
-
+  const addedRecipe = updatedMenu.recipe[updatedMenu.recipe.length - 1];
   return res.status(201).json({
-    message: "menu created successfully",
-    success: false,
+    message: "recipe added successfully",
+    success: true,
+    id: addedRecipe._id,
   });
 };
