@@ -1,4 +1,4 @@
-export interface Employee {
+export interface Table {
     name: string;
    
   }
