@@ -17,8 +17,10 @@ export const authJWT = (
   res: Response,
   next: NextFunction
 ) => {
+  console.log("process.env.JWT_SECRET as string", process.env.JWT_SECRET as string)
   try {
     const token = req.headers.authorization?.replace("Bearer ", "");
+    
     const decoded = jwt.verify(
       token ? token : "",
       process.env.JWT_SECRET as string

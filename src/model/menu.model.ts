@@ -13,23 +13,26 @@ const menuSchema = new Schema({
   type: {
     type: String,
   },
-  catagory: {
+  category: {
     type: String,
   },
   name: {
     type: String,
     maxlength: 50,
-  }, 
-  size:{
+  },
+  size: {
     type: String,
     maxlength: 50,
-  }, 
-  price:{
-    type:Number
+  },
+  price: {
+    type: Number
   },
   description: {
     type: String,
     maxlength: 2000,
+  },
+  files: {
+    type: Array
   },
   recipe: { type: [recipe], default: [] },
 })

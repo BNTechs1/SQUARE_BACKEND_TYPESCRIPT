@@ -13,7 +13,7 @@ const router = express.Router();
 router.post("/create", register);
 router.get("/get", getUsers);
 router.get("/show/:id", getuser);
-router.post("/login", login);
+router.post("/login",  login);
 router.post("/reset/:id", resetPassword);
 router.post("/change", authJWT,  changePassword);
 

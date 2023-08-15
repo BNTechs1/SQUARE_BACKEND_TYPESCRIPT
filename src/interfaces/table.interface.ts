@@ -1,6 +1,5 @@
 export interface Table {
-    name: string;
-   
-  }
-  
-  
+  name: string;
+
+}
+

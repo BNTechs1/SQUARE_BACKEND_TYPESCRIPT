@@ -10,10 +10,11 @@ import {
   updateRecipe
 } from "../controller/menu/index.menu.controller";
 // import { authJWT } from "../middleware/authJWT";
+import { upload } from "../config/mutler";
 const router = express.Router();
 
 //Create Routes
-router.post("/create", createMenu);
+router.post("/create", upload.array("files", 10), createMenu);
 router.post("/create-recipe/:id", addRecipe);
 
 //Update Routes

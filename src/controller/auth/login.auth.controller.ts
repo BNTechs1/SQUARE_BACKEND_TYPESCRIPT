@@ -13,11 +13,6 @@ import { User } from "../../interfaces/user.interface";
 export const login = async (req: Request, res: Response) => {
   //Destructing the inputs from req.body
   const { phoneNumber, password } = req.body;
-
-  //created a variable to assign the user
-  //   let getUser = {}
-  // const phone = phoneNumber.slice(-9);
-  //verifying that the user with the email exist or not
   const getUser:User|null = await UserModel.findOne({phoneNumber: phoneNumber})
   if (!getUser) {
         //if user does not exist responding Authentication Failed
@@ -32,7 +27,11 @@ export const login = async (req: Request, res: Response) => {
           message: "Authentication Failed",
         });
       } else {
+
+        console.log("process.env.JWT_SECRET as string", process.env.JWT_SECRET);
+
         const jwtToken = jwt.sign(
+
           {
             employeeId: getUser.employeeId,
             role: getUser.role,

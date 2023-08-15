@@ -7,8 +7,9 @@ export interface Menu {
   name: string;
   description: number;
   size: string;
-  catagory: string;
+  category: string;
   type: string;
   price: number;
+  files: [],
   recipe: Recipe[];
 }
