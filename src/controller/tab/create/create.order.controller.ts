@@ -7,7 +7,6 @@ export const createOrder = async (req: IncomingMessage, res: Response) => {
         const { tabId } = req.params
 
         const {
-
             menuName,
             menuPrice,
             quantity,
@@ -26,7 +25,7 @@ export const createOrder = async (req: IncomingMessage, res: Response) => {
         if (!tab) {
             return res.status(404).json({ messgae: "Tab not found", success: false });
         }
-
+        tab.status = "ONGOING"
         tab.orders.push(newOrderData);
         await tab.save();
 

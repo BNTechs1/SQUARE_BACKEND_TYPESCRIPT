@@ -1,15 +1,16 @@
 import { createTab } from "./create/create.tab.controller";
 import { createOrder } from "./create/create.order.controller";
-
-// import { getEmployees, getEmployee } from "./get.employee.controller";
-// import { updateEmployee } from "./update.employee.controller";
+import { getTab, getDeletedTab, getTabs, getCompletedTabs, getDeletedTabs, } from "./get/get.tab.controller";
 import { deleteTab } from "./delete/delete.tab.controller";
-
+import { CompleteTab } from "./changestatus/complete.tab.controller";
 export {
     createTab,
     createOrder,
     deleteTab,
-    //   getEmployee,
-    //   updateEmployee,
-    //   deleteEmployee,
+    getTab, 
+    getTabs, 
+    getCompletedTabs, 
+    getDeletedTabs, 
+    getDeletedTab, 
+    CompleteTab
 };

@@ -14,12 +14,20 @@ export const deleteTab = async (req: IncomingMessage, res: Response) => {
 
     const Tab = await showTab(tabId);
 
+    if (!employeeId) {
+        return res.status(404).json({
+            message: "unauthorized personal",
+            success: false
+        })
+    }
+    
     if (!Tab) {
         return res.status(404).json({
             message: "tab not found",
             success: false
         })
     }
+
     if (Tab.status === 'OPENED') {
         await TabModel.deleteOne({ tabId: tabId });
         return res.status(200).json({

@@ -1,13 +1,15 @@
 import express from "express";
 import {
-  createMenu, 
-  addRecipe, 
-  showMenus, 
-  showRecipes, 
+  createMenu,
+  addRecipe,
+  showMenus,
+  showRecipes,
   getMenu,
-  getAllRecipes, 
-  updateMenu, 
-  updateRecipe
+  getAllRecipes,
+  updateMenu,
+  updateRecipe,
+  deleteMenu,
+  deletRecipe
 } from "../controller/menu/index.menu.controller";
 // import { authJWT } from "../middleware/authJWT";
 import { upload } from "../config/mutler";
@@ -29,7 +31,12 @@ router.get("/show-recipe/:id", showRecipes);
 
 
 // router.get("/show/:id", authJWT, getEmployee);
-// router.put("/update/:id", authJWT, updateEmployee);
-// router.delete("/delete/:id", authJWT, deleteEmployee);
+router.put("/update/:menuId", updateMenu);
+router.put("/update/:recipeId", updateRecipe);
+
+
+router.delete("/delete/:menuId", deleteMenu);
+router.delete("/delete/:menuId/:recipeId", deletRecipe);
+
 
 export default router;

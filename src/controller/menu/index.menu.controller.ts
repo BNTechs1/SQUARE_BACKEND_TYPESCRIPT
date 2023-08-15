@@ -8,6 +8,10 @@ import { updateRecipe } from "./update/update.recipe.controller";
 import { showMenus, showRecipes } from "./get/show.menu.controller";
 import { getAllRecipes, getMenu } from "./get/get.menu.controller";
 
+
+import { deleteMenu } from "./delete/delete.menu.controller";
+import { deletRecipe } from "./delete/delete.recipe.controller";
+
 export {
   createMenu,
   addRecipe,
@@ -16,5 +20,7 @@ export {
   showMenus,
   showRecipes,
   updateMenu,
-  updateRecipe
+  updateRecipe, 
+  deleteMenu, 
+  deletRecipe
 };
