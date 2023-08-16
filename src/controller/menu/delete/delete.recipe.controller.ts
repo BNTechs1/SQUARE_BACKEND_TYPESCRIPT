@@ -3,8 +3,7 @@ import MenuModel from "../../../model/menu.model";
 export const deletRecipe = async (req: Request, res: Response) => {
 
     const { menuId, recipeId } = req.params
-    try {
-
+        console.log("recipeId", recipeId)
         const result = await MenuModel.updateOne(
             { _id: menuId },
             { $pull: { recipe: { _id: recipeId } } }
@@ -15,8 +14,6 @@ export const deletRecipe = async (req: Request, res: Response) => {
         }
 
         return res.status(200).json({ message: "Recipe deleted from menu successfully", success: true })
-    } catch (error) {
-        return res.status(200).json({ message: "Error deleting recipe from menu:", success: false });
-    }
+   
 }
 
