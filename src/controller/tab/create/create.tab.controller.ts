@@ -22,6 +22,7 @@ export const createTab = async (req: IncomingMessage, res: Response) => {
         res.status(201).json({
             message: "tab created successfully",
             success: true,
+            tabId:createdTab.tabId
         });
     } catch (error) {
         console.error("Error creating tab:", error);
