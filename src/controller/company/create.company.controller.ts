@@ -6,6 +6,7 @@ export const createCompany = async (req: Request, res: Response) => {
     name,
     email,
     phoneNumber,
+    type,
     address,
     emergencyContact,
     commission,
@@ -18,6 +19,7 @@ export const createCompany = async (req: Request, res: Response) => {
       email,
       phoneNumber,
       address,
+      type,
       emergencyContact,
       commission
     }).save();

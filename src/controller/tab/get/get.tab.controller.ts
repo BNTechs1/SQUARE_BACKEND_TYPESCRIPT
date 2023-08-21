@@ -30,6 +30,11 @@ export const getCompletedTabs = async (req: Request, res: Response) => {
     res.status(200).send(tabs);
 };
 
+export const getPendingDelivery = async (req: Request, res: Response) => {
+  const Alltabs = await TabModel.find();
+  const tabs = Alltabs.filter((tab)=> tab.status === "COMPLETED" && tab.type === "DELIVERY")
+  res.status(200).send(tabs);
+};
 
 export const getDeletedTab = async (req: Request, res: Response) => {
   const { tabId } = req.params

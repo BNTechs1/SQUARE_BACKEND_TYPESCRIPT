@@ -5,6 +5,7 @@ export interface Employee {
     address: string;
     emergencyContact: string;
     commission:string;
+    type:string
   }
   
   

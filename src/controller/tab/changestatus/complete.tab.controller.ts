@@ -20,12 +20,12 @@ export const CompleteTab = async (req: IncomingMessage, res: Response) => {
             }
         });
         return res.status(200).json({
-            message: "payment made successfully",
+            message: "tab closed successfully",
             success: true
         })
     } else {
         return res.status(201).json({
-            message: 'tab can not be completed',
+            message: 'tab can not be closed',
             success: true
         })
 

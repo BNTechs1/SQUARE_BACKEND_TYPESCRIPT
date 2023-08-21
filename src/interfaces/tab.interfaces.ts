@@ -1,16 +1,20 @@
-interface Tab {
+export interface Tab {
     tabId: string;
     createdAt: Date;
-    type: 'DINE_IN' | 'TAKE_OUT';
-    status: 'OPENED' | 'ONGOING' | 'COMPLETED' | 'DELETED'
+    type: 'DINE_IN' | 'DELIVERY';
+    status: 'OPENED' | 'ONGOING' | 'COMPLETED' | 'DELETED', 
+    companyId: string
+    companyName: string
     cashierId: string;
-    orders: order[];
+    coId:string
+    orders: order[], 
 }
 
-interface order {
+export interface order {
     orderId: string,
     menuName: string,
     menuPrice: number,
     quantity: number,
+    menuId: string,
     totalPrice: number,       // totalPrice = menuPrice * quantity
 }

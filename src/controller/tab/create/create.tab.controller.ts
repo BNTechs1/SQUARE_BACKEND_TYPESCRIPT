@@ -9,12 +9,18 @@ export const createTab = async (req: IncomingMessage, res: Response) => {
         const { employeeId } = req.userData as UserDataType;
         const {
             type,
+            companyName, 
+            companyId, 
+            coId
         } = req.body;
 
         const newTabData = {
             tabId: uuidv4().slice(0, 6), // Generate a UUID for tabId
             type,
             status: "OPENED",
+            companyName,
+            companyId,
+            coId,
             cashierId: employeeId,
         };
 

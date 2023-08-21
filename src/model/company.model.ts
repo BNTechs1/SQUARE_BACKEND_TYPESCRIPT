@@ -11,6 +11,9 @@ const companySchema = new Schema({
       phoneNumber: {
         type: String,
       },
+      type:{
+        type:String,
+      },
       address: {
         type: String,
       },

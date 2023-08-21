@@ -3,7 +3,8 @@ import {
   createTab,
   deleteTab,
   getTab, getTabs, getCompletedTabs, getDeletedTabs,
-  CompleteTab
+  CompleteTab,
+  getPendingDelivery
 } from "../controller/tab/index.tab.controller";
 import { authJWT } from "../middleware/authJWT";
 
@@ -20,6 +21,9 @@ router.get("/get", getTabs);
 
 //GET API FOR TABS THAT ARE COMPLETED 
 router.get("/get-completed", getCompletedTabs);
+
+//GET API FOR TABS THAT ARE COMPLETED 
+router.get("/peinding", getPendingDelivery);
 
 //GET API FOR TABS THAT ARE DELETED
 router.get("/get-deleted", getDeletedTabs);
