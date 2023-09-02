@@ -9,7 +9,7 @@ import company from "./company.api";
 import table from "./table.api";
 import tab from "./tab.api"
 import order from "./order.api"
-
+import payment from "./payment.api"
 import inventory from "./inventory.api";
 
 const router = express.Router();
@@ -29,6 +29,8 @@ router.use("/company", company);
 router.use("/table", table);
 router.use("/tab", tab);
 router.use("/order", order);
+router.use("/payment", payment);
+
 
 
 

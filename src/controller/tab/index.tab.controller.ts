@@ -3,6 +3,7 @@ import { createOrder } from "./create/create.order.controller";
 import { getTab, getDeletedTab, getTabs, getCompletedTabs, getDeletedTabs,getPendingDelivery } from "./get/get.tab.controller";
 import { deleteTab } from "./delete/delete.tab.controller";
 import { CompleteTab } from "./changestatus/complete.tab.controller";
+import { getCompleted } from "./filters/completed.tab.controller"
 export {
     createTab,
     createOrder,
@@ -13,5 +14,6 @@ export {
     getDeletedTabs, 
     getDeletedTab, 
     CompleteTab,
-    getPendingDelivery
+    getPendingDelivery,
+    getCompleted
 };

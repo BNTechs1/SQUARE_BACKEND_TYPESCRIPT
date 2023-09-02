@@ -26,35 +26,27 @@ export const createOrder = async (req: IncomingMessage, res: Response) => {
             return res.status(404).json({ messgae: "Tab not found", success: false });
         }
 
-        if ( tab.status === "OPENED")  tab.status = "ONGOING"
-        // if (tab.orders.length === 0) {
-        //     tab.status = "ONGOING"
-        //     tab.orders.push(newOrderData);
-        //     decrementRecipe(menuId)
-        //     await tab.save();
+        if (tab.status === "OPENED") tab.status = "ONGOING"
+        const orderarray = tab.orders;
+        const orderExist = orderarray.filter((i) => i.menuId === menuId)
+        if (orderExist.length !== 0) {
+            const index = orderarray.indexOf(orderExist[0]);
+            const orderObject = orderarray[index] as order;
+            orderObject.quantity += 1;
+            // console.log("menuprice", menuPrice)
+            // console.log("orderObject", orderObject)
 
-        //     res.status(201).json({ message: "order created successfully", success: true });
-        // } else {
-            const orderarray = tab.orders;
-            const orderExist = orderarray.filter((i) => i.menuId === menuId)
-            if (orderExist.length !== 0) {
-                const index = orderarray.indexOf(orderExist[0]);
-                const orderObject = orderarray[index] as order;
-                orderObject.quantity += 1;
-                console.log("menuprice", menuPrice)
-                console.log("orderObject", orderObject)
+            orderObject.totalPrice += menuPrice
+            decrementRecipe(menuId)
 
-                orderObject.totalPrice += menuPrice
-                decrementRecipe(menuId)
-
-                await tab.save();
-                res.status(201).json({ message: "order created successfully", success: true });
-            } else {
-                tab.orders.push(newOrderData);
-                decrementRecipe(menuId)
-                await tab.save();
-                res.status(201).json({ message: "order created successfully", success: true });
-            }
+            await tab.save();
+            res.status(201).json({ message: "order created successfully", success: true });
+        } else {
+            tab.orders.push(newOrderData);
+            decrementRecipe(menuId)
+            await tab.save();
+            res.status(201).json({ message: "order created successfully", success: true });
+        }
         // }
 
     } catch (error) {

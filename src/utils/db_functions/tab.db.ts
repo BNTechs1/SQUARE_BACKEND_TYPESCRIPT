@@ -1,3 +1,4 @@
+import { Schema } from "mongoose";
 import { Recipe } from "../../interfaces/menu.interface";
 import inventoryModel from "../../model/inventory.model";
 import TabModel from "../../model/tab.model";
@@ -24,6 +25,26 @@ export async function showTab(tabId: string) {
     throw error;
   }
 }
+
+export async function showCompletedandDineIN() {
+  try {
+    const tab = await TabModel.find({ staus: "COMPLETED", type: "DINE_IN"});
+    return tab;
+  } catch (error) {
+    // Handle error
+    console.error("Error retrieving tab:", error);
+    throw error;
+  }
+}
+// export async function GOOGLE(Model: Schema , Q : any) {
+//   try {
+//     return await Model.find(Q);
+//   } catch (error) 
+//     // Handle error
+//     console.error("Error retrieving :", error);
+//     throw error;
+//   }
+// }
 
 export async function showDeletedTab(tabId: string) {
   try {

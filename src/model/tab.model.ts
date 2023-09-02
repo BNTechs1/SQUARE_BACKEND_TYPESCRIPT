@@ -2,7 +2,7 @@ import { Schema, model } from "mongoose";
 
 const orderSchema = new Schema({
     orderId: { type: String },
-    menuId: { type:String},
+    menuId: { type: String },
     menuName: { type: String },
     menuPrice: { type: Number },
     quantity: { type: Number },
@@ -17,16 +17,20 @@ const tabSchema = new Schema({
         enum: ['DINE_IN', 'DELIVERY']
     },
     companyId: {
-        type:String
+        type: String
     },
     companyName: {
-        type:String
+        type: String
+    },
+    coId: {
+        type: String
     },
     status: {
         type: String,
         enum: ['OPENED', 'ONGOING', 'COMPLETED', 'DELETED']
     },
     cashierId: { type: String },
+
     orders: [orderSchema]
 });
 
