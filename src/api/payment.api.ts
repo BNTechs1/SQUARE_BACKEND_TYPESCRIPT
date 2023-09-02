@@ -1,6 +1,11 @@
 import express from "express";
 import {
-    getCompleted
+    getCompleted,
+    getPaid,
+    getPending, 
+    toPaid,
+    toPending,
+    tocomplete
 } from "../controller/tab/index.tab.controller";
 import {
     createOptions
@@ -14,16 +19,23 @@ const router = express.Router();
 // router.post("/create", authJWT, createTab);
 
 //POST API TO CHANGE THE STATUS OF A TAB TO COMPLETED
-router.post("/create-options", authJWT,  upload.array("files", 10), createOptions);
+router.post("/create-options", authJWT, upload.array("files", 10), createOptions);
+
+router.post("/to-paid", authJWT, toPaid);
+
+router.post("/to-pending", authJWT, toPending);
+
+router.post("/to-complete", authJWT, tocomplete);
+
 
 //GET API FOR TABS THAT ARE ONGOING OR OPENED
 router.get("/get-completed", getCompleted);
 
-// //GET API FOR TABS THAT ARE COMPLETED 
-// router.get("/get-completed", getCompletedTabs);
+//GET API FOR TABS THAT ARE COMPLETED 
+router.get("/get-pending", getPending);
 
-// //GET API FOR TABS THAT ARE COMPLETED 
-// router.get("/peinding", getPendingDelivery);
+//GET API FOR TABS THAT ARE COMPLETED 
+router.get("/get-paid", getPaid);
 
 // //GET API FOR TABS THAT ARE DELETED
 // router.get("/get-deleted", getDeletedTabs);
