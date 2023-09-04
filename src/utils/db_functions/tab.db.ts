@@ -4,7 +4,7 @@ import inventoryModel from "../../model/inventory.model";
 import TabModel from "../../model/tab.model";
 import tablogModel from "../../model/tablog.model";
 import { showMenu } from "./menu.db";
-
+import tabModel from "../../model/tab.model";
 export async function getAllTab() {
   try {
     const tab = await TabModel.find();
@@ -28,7 +28,7 @@ export async function showTab(tabId: string) {
 
 export async function showCompletedandDineIN() {
   try {
-    const tab = await TabModel.find({ staus: "COMPLETED", type: "DINE_IN"});
+    const tab = await TabModel.find({ staus: "COMPLETED", type: "DINE_IN" });
     return tab;
   } catch (error) {
     // Handle error
@@ -53,6 +53,43 @@ export async function showDeletedTab(tabId: string) {
   } catch (error) {
     // Handle error
     console.error("Error retrieving tab:", error);
+    throw error;
+  }
+}
+
+// export async function fetchDataByDateAndCompany(startDate: Date, endDate: Date, companyName: string) {
+//   return await tabModel.find({
+//     created_at: {
+//       $gte: new Date(startDate), // Start date
+//       $lte: new Date(endDate),   // End date
+//     },
+//     company_name: companyName,  // Company name to filter
+//     status : "COMPLETED", 
+//     type: "DELIVERY"
+//   });
+
+// }
+
+export async function fetchDataByDateAndCompany(startDate: Date, endDate: Date, companyName: string) {
+  try {
+    console.log("startDate.", startDate)
+    console.log("endDate.", endDate)
+    console.log("companyName.", companyName)
+    // const tab = await TabModel.findOne({ tabId: tabId });
+    const result = await TabModel.find({
+      createdAt: {
+        $gte: startDate, // Start date
+        $lte: endDate,   // End date
+      },
+      companyName: companyName,  // Company name to filter
+      status: "COMPLETED",
+      type: "DELIVERY",
+    });
+
+    return result;
+  } catch (error) {
+    // Handle the error here, e.g., log it or return an error response.
+    console.error("Error fetching data:", error);
     throw error;
   }
 }

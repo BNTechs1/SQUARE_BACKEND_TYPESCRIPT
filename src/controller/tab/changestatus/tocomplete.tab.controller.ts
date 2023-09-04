@@ -6,7 +6,7 @@ import { getTotalPrice } from "../../../utils/db_functions/payment.db";
 export const tocomplete = async (req: IncomingMessage, res: Response) => {
     const { tabId } = req.params
     const { employeeId } = req.userData as UserDataType;
-    const { paymentMethodId } = req.body
+    const { paymentMethod } = req.body
     const tab = await showTab(tabId);
 
     if (!tab) {
@@ -31,7 +31,7 @@ export const tocomplete = async (req: IncomingMessage, res: Response) => {
         });
 
         await new paymentModel({
-            paymentMethodId: paymentMethodId,
+            paymentMethod: paymentMethod,
             tabId: tabId,
             amount: totalSum
         }).save();

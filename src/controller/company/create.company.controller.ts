@@ -10,6 +10,7 @@ export const createCompany = async (req: Request, res: Response) => {
     address,
     emergencyContact,
     commission,
+    paymentMethod
   } = req.body;
 
   const verifyCompany = await showCompanybyEmail(email);
@@ -21,7 +22,8 @@ export const createCompany = async (req: Request, res: Response) => {
       address,
       type,
       emergencyContact,
-      commission
+      commission, 
+      paymentMethod
     }).save();
 
     return res.status(200).json({

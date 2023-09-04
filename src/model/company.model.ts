@@ -24,6 +24,9 @@ const companySchema = new Schema({
         type: String,
         required: [true, "Custom Error - Required Value *:commission is required."],
       },
+      paymentMethod:{
+        type: String,
+      }
 });
 
 export default model("Company", companySchema);

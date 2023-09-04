@@ -9,7 +9,7 @@ const paymentSchema = new Schema({
     tabId: {
         type: String
     },
-    paymentMethodId: {
+    paymentMethod: {
         type: String,
     },
 });

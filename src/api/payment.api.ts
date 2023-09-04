@@ -8,7 +8,10 @@ import {
     tocomplete
 } from "../controller/tab/index.tab.controller";
 import {
-    createOptions
+    createOptions, 
+    getOption, 
+    getOptions, 
+    deleteOptions
 } from "../controller/paymentoptions/index.options.controller";
 import { authJWT } from "../middleware/authJWT";
 import { upload } from "../config/mutler";
@@ -19,13 +22,19 @@ const router = express.Router();
 // router.post("/create", authJWT, createTab);
 
 //POST API TO CHANGE THE STATUS OF A TAB TO COMPLETED
-router.post("/create-options", authJWT, upload.array("files", 10), createOptions);
+router.post("/create-options", authJWT, upload.array("files", 10), createOptions); 
+
+router.get("/get-options", authJWT, getOptions); 
+
+router.get("/get-options/:id", authJWT, getOption); 
+
+router.delete("/delete-options/:id", authJWT, deleteOptions);
 
 router.post("/to-paid", authJWT, toPaid);
 
-router.post("/to-pending", authJWT, toPending);
+router.post("/to-pending/:tabId", authJWT, toPending);
 
-router.post("/to-complete", authJWT, tocomplete);
+router.post("/to-complete/:tabId", authJWT, tocomplete);
 
 
 //GET API FOR TABS THAT ARE ONGOING OR OPENED

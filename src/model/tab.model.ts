@@ -16,6 +16,7 @@ const tabSchema = new Schema({
         type: String,
         enum: ['DINE_IN', 'DELIVERY']
     },
+    
     companyId: {
         type: String
     },
@@ -27,7 +28,7 @@ const tabSchema = new Schema({
     },
     status: {
         type: String,
-        enum: ['OPENED', 'ONGOING', 'COMPLETED', 'DELETED']
+        // enum: ['OPENED', 'ONGOING', 'COMPLETED', 'DELETED']
     },
     cashierId: { type: String },
 

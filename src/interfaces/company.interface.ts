@@ -6,6 +6,7 @@ export interface Employee {
     emergencyContact: string;
     commission:string;
     type:string
+    paymentMethod: string;
   }
   
   

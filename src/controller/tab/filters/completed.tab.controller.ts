@@ -21,7 +21,7 @@ export const getCompleted =  async (req:Request, res:Response) => {
         payment: matchingPayments.map((payment) => ({
           _id: payment._id,
           tabId: payment.tabId,
-          paymentMethodId: payment.paymentMethodId,
+          paymentMethod: payment.paymentMethod,
           acceptedBy: payment.acceptedBy,
           amount: payment.amount,
           createdAt: payment.createdAt,

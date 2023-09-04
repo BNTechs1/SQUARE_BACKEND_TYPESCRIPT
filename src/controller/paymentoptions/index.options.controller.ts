@@ -1,12 +1,11 @@
 import { createOptions } from "./create.options.controller";
-// import { getCompanies, getCompany } from "./get.company.controller";
+import { getOptions, getOption } from "./get.options.controller";
 // import { updateCompany } from "./update.company.controller";
-// import { deleteCompany } from "./delete.company.controller";
+import { deleteOptions } from "./delete.options.controller";
 
 export {
   createOptions,
-  // getCompanies,
-  // getCompany,
-  // updateCompany,
-  // deleteCompany,
+  getOptions,
+  getOption,
+  deleteOptions,
 };
