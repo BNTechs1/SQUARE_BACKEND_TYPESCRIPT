@@ -12,6 +12,7 @@ export const createTab = async (req: IncomingMessage, res: Response) => {
             type,
             companyName, 
             companyId, 
+            description,
             coId, 
         } = req.body;
 
@@ -20,6 +21,7 @@ export const createTab = async (req: IncomingMessage, res: Response) => {
             type,
             status: "OPENED",
             companyName,
+            description,
             companyId,
             coId,
             cashierId: employeeId,

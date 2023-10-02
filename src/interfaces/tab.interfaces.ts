@@ -1,6 +1,7 @@
 export interface Tab {
     tabId: string;
     createdAt: Date;
+    description: string;
     type: 'DINE_IN' | 'DELIVERY';
     status: 'OPENED' | 'ONGOING' | 'COMPLETED' | 'DELETED', 
     companyId: string

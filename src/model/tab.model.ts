@@ -16,7 +16,9 @@ const tabSchema = new Schema({
         type: String,
         enum: ['DINE_IN', 'DELIVERY']
     },
-    
+    description: {
+        type:String
+    },
     companyId: {
         type: String
     },
