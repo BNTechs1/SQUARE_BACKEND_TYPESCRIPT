@@ -12,9 +12,7 @@ export const create = async (req: Request, res: Response) => {
     await new InventoryModel({
       name,
       unit,
-      // quantity,
       rate,
-      // value: rate * quantity,
       requiredValue,
     }).save();
     res.status(201).json({

@@ -2,9 +2,8 @@ import { Request, Response } from "express";
 import TabModel from "../../../model/tab.model";
 import {
   showTab,
-  showDeletedTab
 } from "../../../utils/db_functions/tab.db";
-import tablogModel from "../../../model/tablog.model";
+// import tablogModel from "../../../model/tablog.model";
 // import  user from "../../model/user"
 
 export const getTab = async (req: Request, res: Response) => {

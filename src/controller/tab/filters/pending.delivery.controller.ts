@@ -1,4 +1,4 @@
-import Payment from '../../../model/payment.model'
+// import Payment from '../../../model/payment.model'
 import Tab from '../../../model/tab.model'; // Assuming this is the import path for your tab model
 import { Request, Response } from "express";
 export const getPending = async (req: Request, res: Response) => {

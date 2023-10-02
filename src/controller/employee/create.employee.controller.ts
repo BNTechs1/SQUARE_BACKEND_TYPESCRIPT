@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import EmployeeModel from "../../model/employee.model";
 import {
-  getAllEmployees,
   showEmployeebyPhone,
 } from "../../utils/db_functions/employee.db";
 // import  user from "../../model/user"

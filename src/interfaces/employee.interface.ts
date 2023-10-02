@@ -6,6 +6,7 @@ export interface Employee {
   emergencyContact: string;
   salary: number;
   position: string;
-  role: string
+  role: string; 
+  
 }
 

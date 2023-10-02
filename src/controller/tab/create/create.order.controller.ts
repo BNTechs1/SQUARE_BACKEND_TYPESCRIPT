@@ -1,6 +1,6 @@
-import { Request, Response } from "express";
+import {  Response } from "express";
 import { v4 as uuidv4 } from "uuid"; // Import UUID v4 generator
-import { IncomingMessage, UserDataType } from "../../../middleware/authJWT";
+import { IncomingMessage } from "../../../middleware/authJWT";
 import { decrementRecipe, showTab } from "../../../utils/db_functions/tab.db";
 import { order } from "../../../interfaces/tab.interfaces"
 export const createOrder = async (req: IncomingMessage, res: Response) => {

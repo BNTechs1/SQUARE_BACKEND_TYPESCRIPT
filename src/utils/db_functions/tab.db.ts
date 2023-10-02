@@ -1,10 +1,10 @@
-import { Schema } from "mongoose";
+// import { Schema } from "mongoose";
 import { Recipe } from "../../interfaces/menu.interface";
 import inventoryModel from "../../model/inventory.model";
 import TabModel from "../../model/tab.model";
 import tablogModel from "../../model/tablog.model";
 import { showMenu } from "./menu.db";
-import tabModel from "../../model/tab.model";
+// import tabModel from "../../model/tab.model";
 export async function getAllTab() {
   try {
     const tab = await TabModel.find();
@@ -36,15 +36,6 @@ export async function showCompletedandDineIN() {
     throw error;
   }
 }
-// export async function GOOGLE(Model: Schema , Q : any) {
-//   try {
-//     return await Model.find(Q);
-//   } catch (error) 
-//     // Handle error
-//     console.error("Error retrieving :", error);
-//     throw error;
-//   }
-// }
 
 export async function showDeletedTab(tabId: string) {
   try {
@@ -56,19 +47,6 @@ export async function showDeletedTab(tabId: string) {
     throw error;
   }
 }
-
-// export async function fetchDataByDateAndCompany(startDate: Date, endDate: Date, companyName: string) {
-//   return await tabModel.find({
-//     created_at: {
-//       $gte: new Date(startDate), // Start date
-//       $lte: new Date(endDate),   // End date
-//     },
-//     company_name: companyName,  // Company name to filter
-//     status : "COMPLETED", 
-//     type: "DELIVERY"
-//   });
-
-// }
 
 export async function fetchDataByDateAndCompany(startDate: Date, endDate: Date, companyName: string) {
   try {
@@ -110,30 +88,10 @@ export async function decrementRecipe(menuId: string) {
           }
         });
       })
-
-
-      // Items.map((item) => {
-      //   recipearray.find((recipeobject) => {
-      //     if (recipeobject.name === item.name) {
-      //       item.value = item.value - recipeobject.value;
-      //       Items.filter((i) => {
-      //         if (i.name === item.name) {
-      //           i.value = item.value;
-      //         }
-      //       });
-      //     }
-      //   });
-      //   item.save()
-      // });
     }
   } catch (error) {
     // Handle error
     console.error("Error retrieving tab:", error);
     throw error;
   }
-}
-
-
-export async function incrementRecipe() {
-
 }

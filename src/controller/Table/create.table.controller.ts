@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import { showCompanybyEmail, showTablebyName } from "../../utils/db_functions/company.db";
 import TableModel from "../../model/table.model";
 export const createTable = async (req: Request, res: Response) => {
   const {

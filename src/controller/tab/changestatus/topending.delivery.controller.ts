@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import {  Response } from "express";
 import { IncomingMessage, UserDataType } from "../../../middleware/authJWT";
 import { showTab } from "../../../utils/db_functions/tab.db";
 export const toPending = async (req: IncomingMessage, res: Response) => {

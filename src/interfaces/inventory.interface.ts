@@ -6,6 +6,7 @@ export interface Item extends mongoose.Document {
   quantity: number;
   rate: number;
   value: number;
+  dailyvalue: number;
   requiredValue: number;
   stack: Stack[];
 }

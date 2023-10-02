@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import MenuModel from "../../model/menu.model";
-import { Menu } from "../../interfaces/menu.interface";
+// import { Menu } from "../../interfaces/menu.interface";
 
 export async function getAllMenu() {
   try {

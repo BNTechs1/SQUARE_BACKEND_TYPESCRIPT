@@ -44,8 +44,14 @@ const inventorySchema = new Schema({
     type: Number,
     // required: [true, "value is required."],
     default: 0
+  },
+  dailyvalue: {
+    type: Number,
+    // required: [true, "value is required."],
+    default: 0
 
   },
+
   requiredValue: {
     type: Number,
   },
