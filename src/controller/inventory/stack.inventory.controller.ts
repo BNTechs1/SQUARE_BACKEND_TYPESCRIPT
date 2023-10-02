@@ -51,8 +51,14 @@ export const stack = async (req: IncomingMessage, res: Response) => {
       verifyItem.stack.push(stack);
     await verifyItem.save();
 
-    res.status(201).send(`${name} added successfully`);
+    res.status(201).json({
+      message: `${name} added successfully`,
+      success: true
+    });
   } else {
-    res.status(404).send(`${name} EXIST.`);
+    res.status(404).json({
+      message: `${name} Exist`,
+      success: true
+    });
   }
 };
