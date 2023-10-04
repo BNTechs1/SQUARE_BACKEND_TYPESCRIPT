@@ -10,7 +10,7 @@ export const allocateDailyValue = async (req: Request, res: Response) => {
         // Find the item by ID and admin ID and update it
         await InventoryModel.updateOne(
           { _id: itemId },
-          { $inc: { value: -dailyValue, dailyvalue: dailyValue } }
+          { $inc: { value: -dailyValue, dailyvalue: dailyValue ? dailyValue : 0 } }
         );
       }
     }

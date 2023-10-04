@@ -83,7 +83,7 @@ export async function decrementRecipe(menuId: string) {
       recipearray.map((r) => {
         Items.filter((i) => {
           if (r.name === i.name) {
-            i.value = i.value - r.value;
+            i.dailyvalue = i.dailyvalue - r.value;
             i.save()
           }
         });

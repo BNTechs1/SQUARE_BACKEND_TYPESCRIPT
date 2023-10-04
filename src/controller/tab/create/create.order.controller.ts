@@ -1,4 +1,4 @@
-import {  Response } from "express";
+import { Response } from "express";
 import { v4 as uuidv4 } from "uuid"; // Import UUID v4 generator
 import { IncomingMessage } from "../../../middleware/authJWT";
 import { decrementRecipe, showTab } from "../../../utils/db_functions/tab.db";
@@ -25,7 +25,6 @@ export const createOrder = async (req: IncomingMessage, res: Response) => {
         if (!tab) {
             return res.status(404).json({ messgae: "Tab not found", success: false });
         }
-
         if (tab.status === "OPENED") tab.status = "ONGOING"
         const orderarray = tab.orders;
         const orderExist = orderarray.filter((i) => i.menuId === menuId)
@@ -33,12 +32,8 @@ export const createOrder = async (req: IncomingMessage, res: Response) => {
             const index = orderarray.indexOf(orderExist[0]);
             const orderObject = orderarray[index] as order;
             orderObject.quantity += 1;
-            // console.log("menuprice", menuPrice)
-            // console.log("orderObject", orderObject)
-
             orderObject.totalPrice += menuPrice
             decrementRecipe(menuId)
-
             await tab.save();
             res.status(201).json({ message: "order created successfully", success: true });
         } else {
@@ -47,8 +42,6 @@ export const createOrder = async (req: IncomingMessage, res: Response) => {
             await tab.save();
             res.status(201).json({ message: "order created successfully", success: true });
         }
-        // }
-
     } catch (error) {
         res.status(500).json({ message: "An error occurred while creating the order", error, success: false });
     }

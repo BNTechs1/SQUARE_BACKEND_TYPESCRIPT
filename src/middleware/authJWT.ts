@@ -1,5 +1,4 @@
 // import { NextFunction, Request, Response } from "express";
-
 export interface IncomingMessage extends Request {
   userData?: UserDataType | jwt.JwtPayload | string ;
 }
