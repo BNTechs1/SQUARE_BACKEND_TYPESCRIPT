@@ -4,7 +4,7 @@ export const allocateDailyValue = async (req: Request, res: Response) => {
   try {
     const allocationData = req.body;
     for (const itemId in allocationData) {
-      if (allocationData.hasOwnProperty(itemId)) {
+      if (itemId in allocationData) {
         const dailyValue = allocationData[itemId];
 
         // Find the item by ID and admin ID and update it
