@@ -1,4 +1,6 @@
-export interface Employee {
+import { Document } from 'mongoose';
+
+export interface IEmployee extends Document {
   fullName: string;
   email: string;
   phoneNumber: string;
@@ -7,6 +9,7 @@ export interface Employee {
   salary: number;
   position: string;
   role: string; 
+  status:string;
   
 }
 

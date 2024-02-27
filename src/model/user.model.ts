@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
-
-const userSchema = new Schema({
+import { IUser } from "../interfaces/user.interface"
+const userSchema = new Schema<IUser>({
   phoneNumber: {
     type: String,
     required: [true, "phoneNumber name is required."],
@@ -23,11 +23,11 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  created: {
+  createdAt: {
     type: Date,
     default: Date.now,
   },
 
 });
 
-export default model("User", userSchema);
+export default model<IUser>("User", userSchema);

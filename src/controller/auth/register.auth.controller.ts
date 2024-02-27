@@ -1,17 +1,13 @@
 import { Request, Response } from "express";
 
-//Importing the express-async-handler package
-
-
-//Importing the bcrypt package
 import bcrypt from 'bcrypt'
 
 //Importing the user model 
 import UserModel from "../../model/user.model";
 
 import { showEmployee } from "../../utils/db_functions/employee.db";
-
-export const register = async (req: Request, res: Response) => {
+// import asyncHandler from "express-async-handler"
+export const registerUser = async (req: Request, res: Response) => {
 
     //Destructuing the inputs from req.body 
     const { role, employeeId } = req.body;

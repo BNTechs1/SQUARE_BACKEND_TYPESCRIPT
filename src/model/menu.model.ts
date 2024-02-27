@@ -1,4 +1,14 @@
 import { Schema, model } from "mongoose";
+import { IMenu } from "../interfaces/menu.interface";
+
+const Image = new Schema({
+  url: {
+    type:String
+  },
+  id: {
+    type: String
+  }
+})
 
 const recipe = new Schema({
   name: {
@@ -9,7 +19,7 @@ const recipe = new Schema({
   },
 });
 
-const menuSchema = new Schema({
+const menuSchema = new Schema<IMenu>({
   type: {
     type: String,
   },
@@ -31,10 +41,8 @@ const menuSchema = new Schema({
     type: String,
     maxlength: 2000,
   },
-  files: {
-    type: Array
-  },
+  files: { type: [Image], default: [] },
   recipe: { type: [recipe], default: [] },
 })
 
-export default model("Menu", menuSchema);
+export default model<IMenu>("Menu", menuSchema);

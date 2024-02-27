@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
+import { Document } from "mongoose";
 
-export interface Item extends mongoose.Document {
+export interface IInventory extends Document {
   name: string;
   unit: string;
   quantity: number;

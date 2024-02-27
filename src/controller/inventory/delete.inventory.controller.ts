@@ -1,41 +1,41 @@
-// import { Request, Response } from "express";
-// import InventoryModel from "../../model/inventory.model";
-// import { showItem } from "../../utils/db_functions/inventory.db";
-// import { getAllMenus } from "../../utils/db_functions/menu.db";
-// import { Item } from "../../interfaces/inventory.interface";
+import { Request, Response } from "express";
+import InventoryModel from "../../model/inventory.model";
+import MenuModel from "../../model/menu.model";
+import { IMenu } from "../../interfaces/menu.interface";
 
-// export const deleteInventory = async (req: Request, res: Response) => {
-//   const { id } = req.params;
-//   const verifyItem = await showItem(id);
-//   const name = verifyItem.name;
-//   const menuList = await getAllMenus();
-//   let yes = "";
-//   const check = menuList.filter((menu) =>
-//     menu.size.filter((size) =>
-//       size.recipe.filter((item) => {
-//         if (item.name === name) {
-//           yes = "yes";
-//         } else {
-//           yes = "NO";
-//         }
-//       })
-//     )
-//   );
-//   try {
-//     if (yes === "yes") {
-//       res.status(403).json({
-//         message: "recipe item is used in Menus",
-//         success: false,
-//       });
-//     } else {
-//       const removed = await InventoryModel.findByIdAndDelete(id);
-//       // if (!removed) throw Error('Something went wrong ')
-//       res.status(200).json({
-//         message: "item removed successfully",
-//         success: true,
-//       });
-//     }
-//   } catch (error) {
-//     res.status(500).json({ message: "something went wrong" });
-//   }
-// };
+export const deleteInventory = async (req: Request, res: Response) => {
+  const { id } = req.params;
+
+  try {
+    // Check if the item is used in any menu recipes
+    const menusUsingItem: IMenu[] = await MenuModel.find({
+      "recipe.name": id
+    });
+
+    if (menusUsingItem.length > 0) {
+      return res.status(403).json({
+        message: "Item is used in menus and cannot be deleted",
+        success: false,
+        menusUsingItem: menusUsingItem
+      });
+    }
+
+    // If the item is not used in any menu recipes, delete it
+    const removed = await InventoryModel.findByIdAndDelete(id);
+    
+    if (removed) {
+      return res.status(200).json({
+        message: "Item removed successfully",
+        success: true,
+      });
+    } else {
+      return res.status(404).json({
+        message: "Item not found",
+        success: false,
+      });
+    }
+  } catch (error) {
+    console.error('Error deleting item:', error);
+    return res.status(500).json({ message: "Something went wrong", success: false });
+  }
+};

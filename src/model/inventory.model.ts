@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import { IInventory } from "../interfaces/inventory.interface";
 
 // const bcrypt = require("bcryptjs");
 const stackSchema = new Schema({
@@ -6,6 +7,7 @@ const stackSchema = new Schema({
     type: Number,
   },
   date: { type: Date, default: Date.now },
+  
   quantity: {
     type: Number,
     required: [true, "quantity is required."],
@@ -23,7 +25,8 @@ const stackSchema = new Schema({
     required: [true, "username is required."],
   },
 });
-const inventorySchema = new Schema({
+
+const inventorySchema = new Schema<IInventory>({
   name: {
     type: String,
     required: [true, "name is required."],
@@ -58,4 +61,4 @@ const inventorySchema = new Schema({
   stack: { type: [stackSchema], default: [] },
 });
 
-export default model("inventory", inventorySchema);
+export default model<IInventory>("inventory", inventorySchema);

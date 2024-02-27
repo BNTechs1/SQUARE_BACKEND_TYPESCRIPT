@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
-
-const paymentSchema = new Schema({
+import { IPayment } from "../interfaces/payment.interfaces"
+const paymentSchema = new Schema<IPayment>({
     amount: { type: Number },
     createdAt: { type: Date, default: Date.now },
     acceptedBy: {
@@ -14,4 +14,4 @@ const paymentSchema = new Schema({
     },
 });
 
-export default model("payment", paymentSchema);
+export default model<IPayment>("payment", paymentSchema);

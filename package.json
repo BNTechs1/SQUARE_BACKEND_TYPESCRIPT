@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/src/index.js",
   "scripts": {
-    "start": "tsc && node dist/index.js",
+    "start": "tsc && node dist/src/index.js",
     "dev": "nodemon index.ts",
     "build": "tsc",
     "prebuild": "npm install typescript",

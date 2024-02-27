@@ -1,9 +1,9 @@
 import { Schema, model } from "mongoose";
-
-const TableSchema = new Schema({
+import { ITable } from "../interfaces/table.interface"
+const TableSchema = new Schema<ITable>({
   name: {
     type: String,
   },
 });
 
-export default model("Table", TableSchema);
+export default model<ITable>("Table", TableSchema);

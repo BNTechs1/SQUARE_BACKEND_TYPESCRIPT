@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-
+import { ITab } from "../interfaces/tab.interfaces"
 const orderSchema = new Schema({
     orderId: { type: String },
     menuId: { type: String },
@@ -9,7 +9,7 @@ const orderSchema = new Schema({
     totalPrice: { type: Number }
 });
 
-const tabSchema = new Schema({
+const tabSchema = new Schema<ITab>({
     tabId: { type: String },
     createdAt: { type: Date, default: Date.now },
     type: {
@@ -37,4 +37,4 @@ const tabSchema = new Schema({
     orders: [orderSchema]
 });
 
-export default model("tab", tabSchema);
+export default model<ITab>("tab", tabSchema);

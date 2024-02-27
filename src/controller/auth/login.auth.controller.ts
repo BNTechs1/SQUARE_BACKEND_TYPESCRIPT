@@ -8,12 +8,12 @@ import bcrypt from "bcrypt";
 
 // Importing usermodel from user
 import UserModel from "../../model/user.model";
-import { User } from "../../interfaces/user.interface";
+import { IUser } from "../../interfaces/user.interface";
 
 export const login = async (req: Request, res: Response) => {
   //Destructing the inputs from req.body
   const { phoneNumber, password } = req.body;
-  const getUser:User|null = await UserModel.findOne({phoneNumber: phoneNumber})
+  const getUser:IUser|null = await UserModel.findOne({phoneNumber: phoneNumber})
   if (!getUser) {
         //if user does not exist responding Authentication Failed
         return res.status(403).json({

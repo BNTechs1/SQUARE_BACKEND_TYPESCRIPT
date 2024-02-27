@@ -8,7 +8,8 @@ import {
   // deleteInventory,
   allocateDailyValue,
   stack,
-  filterStack,
+  deleteInventory
+  // filterStack,
 } from "../controller/inventory/index.inventory.controller";
 import { authJWT } from "../middleware/authJWT";
 
@@ -19,10 +20,9 @@ router.post("/stack/:id", authJWT, stack);
 router.get("/get", getinventories);
 router.get("/show/:id", getinventory);
 router.get("/show/purchases/:id", getPurchases);
-router.get("/filter/purchases/:id", filterStack);
+// router.get("/filter/purchases/:id", filterStack);
 router.post("/allocate", allocateDailyValue);
-
 router.put("/update/:id", update);
-// router.delete("/delete/:id", deleteInventory);
+router.delete("/delete/:id", deleteInventory);
 
 export default router;

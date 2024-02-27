@@ -1,6 +1,7 @@
 import { Schema, model } from "mongoose";
+import { IEmployee } from "../interfaces/employee.interface";
 
-const employeeSchema = new Schema({
+const employeeSchema = new Schema<IEmployee>({
   fullName: {
     type: String,
     required: [true, "Username is required."],
@@ -9,6 +10,9 @@ const employeeSchema = new Schema({
   email: {
     type: String,
   },
+  status: {
+    type:String
+  }, 
   phoneNumber: {
     type: String,
     required: [true, "phoneNumber is required."],
@@ -37,4 +41,4 @@ const employeeSchema = new Schema({
   }
 });
 
-export default model("Employee", employeeSchema);
+export default model<IEmployee>("Employee", employeeSchema);

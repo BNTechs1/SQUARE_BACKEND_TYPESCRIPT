@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
-
-const tabLogSchema = new Schema({
+import {ITabLog} from "../interfaces/tablog.interfaces"
+const tabLogSchema = new Schema<ITabLog>({
     tabId: {
         type: String,
       },
@@ -16,4 +16,4 @@ const tabLogSchema = new Schema({
      
 });
 
-export default model("tabLog", tabLogSchema);
+export default model<ITabLog>("tabLog", tabLogSchema);

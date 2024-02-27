@@ -1,4 +1,4 @@
-import { Tab } from "../../interfaces/tab.interfaces";
+import { ITab } from "../../interfaces/tab.interfaces";
 import PaymentModel from "../../model/payment.model";
 
 export async function getAllPayment() {
@@ -13,7 +13,7 @@ export async function getAllPayment() {
 }
 
 
-export async function getTotalPrice(tab: Tab) {
+export async function getTotalPrice(tab: ITab) {
   return tab.orders
     .flatMap((order) => [order.totalPrice])
     .reduce((total, price) => total + price, 0);

@@ -1,6 +1,7 @@
 import { Schema, model } from "mongoose";
+import { ICompany } from "../interfaces/company.interface";
 
-const companySchema = new Schema({
+const companySchema = new Schema<ICompany>({
     name: {
         type: String,
         required: [true, "Custom Error - Required Value *:Username is required."],
@@ -29,4 +30,4 @@ const companySchema = new Schema({
       }
 });
 
-export default model("Company", companySchema);
+export default model<ICompany>("Company", companySchema);

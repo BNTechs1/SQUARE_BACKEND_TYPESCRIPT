@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 import InventoryModel from "../../model/inventory.model";
 import { showItem } from "../../utils/db_functions/inventory.db";
-import { Item } from "../../interfaces/inventory.interface";
+import { IInventory } from "../../interfaces/inventory.interface";
 
 export const update = async (req: Request, res: Response) => {
-  const { name, unit, requiredValue, rate, quantity }: Item = req.body;
+  const { name, unit, requiredValue, rate, quantity }: IInventory = req.body;
   const { id } = req.params;
   let updatedInventory;
   const verifyItem = await showItem(id);

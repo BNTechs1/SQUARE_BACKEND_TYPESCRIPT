@@ -1,14 +1,17 @@
-export interface Tab {
+import { Document } from 'mongoose';
+
+
+export interface ITab extends Document{
     tabId: string;
     createdAt: Date;
     description: string;
     type: 'DINE_IN' | 'DELIVERY';
-    status: 'OPENED' | 'ONGOING' | 'COMPLETED' | 'DELETED', 
+    status: 'OPENED' | 'ONGOING' | 'COMPLETED' | 'DELETED' | 'PAID', 
     companyId: string
     companyName: string
     cashierId: string;
     coId:string
-    orders: order[], 
+    orders: [order], 
 }
 
 export interface order {

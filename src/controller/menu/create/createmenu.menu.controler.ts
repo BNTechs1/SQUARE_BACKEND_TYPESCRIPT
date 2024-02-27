@@ -10,7 +10,7 @@ export const createMenu = async (req: Request, res: Response) => {
     if (req.files) {
       const files = req.files;
       const urls = await Mloop(files);
-
+      console.log(urls)
       const createmenu = new MenuModel({
         type,
         category,
