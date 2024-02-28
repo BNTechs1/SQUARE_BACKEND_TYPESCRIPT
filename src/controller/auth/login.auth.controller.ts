@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 
 //Importing JWT from Json Web Token package
 import jwt from "jsonwebtoken";
-
+import { JWT_SECRET} from "../../middleware/authJWT"
 //Importing the bcrypt package
 import bcrypt from "bcrypt";
 
@@ -28,7 +28,7 @@ export const login = async (req: Request, res: Response) => {
         });
       } else {
 
-        console.log("process.env.JWT_SECRET as string", process.env.JWT_SECRET);
+        // console.log("process.env.JWT_SECRET as string", process.env.JWT_SECRET);
 
         const jwtToken = jwt.sign(
 
@@ -39,7 +39,7 @@ export const login = async (req: Request, res: Response) => {
 
           },
           //Signign the token with the JWT_SECRET in the .env
-          process.env.JWT_SECRET as string,
+          JWT_SECRET as string,
           {
             expiresIn: "24h",
           }
