@@ -1,6 +1,6 @@
 import app from './app';
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 // Import DB Config
 import { connectToDB } from "./config/db_config";
 
@@ -10,3 +10,5 @@ app.listen(port, () => {
   console.log(`Listening: http://localhost:${port}`);
   /* eslint-enable no-console */
 });
+
+
