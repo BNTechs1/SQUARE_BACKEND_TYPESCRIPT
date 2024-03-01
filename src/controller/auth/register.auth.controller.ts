@@ -13,12 +13,12 @@ export const registerUser = async (req: Request, res: Response) => {
     const { role, employeeId } = req.body;
 
     const verifyEmployee = await showEmployee(employeeId)
-    if(!verifyEmployee){
+    if (!verifyEmployee) {
         return res.status(404).json({
-            message: "employee not found", 
+            message: "employee not found",
             success: false
         })
-    } 
+    }
 
     //Verifying the email address inputed is not used already 
     const verifyUser = await UserModel.findOne({ phoneNumber: verifyEmployee.phoneNumber })
@@ -30,33 +30,21 @@ export const registerUser = async (req: Request, res: Response) => {
             })
         } else {
             const password = "060708"
-            bcrypt.hash(password, 10)
-                .then((hash) => {
-                    //Registering the user
-                    const user = new UserModel({
-                        employeeId: verifyEmployee._id,
-                        phoneNumber: verifyEmployee.phoneNumber,
-                        role: role,
-                        password: hash,
-                    });
-                    verifyEmployee.role = role 
-                    verifyEmployee.save()
-                    //saving the data to the mongodb user collection
-                    user.save()
-                        .then((response) => {
-                            return res.status(201).json({
-                                message: 'user successfully created!',
-                                response,
-                                success: true
-                            })
-                        })
-                        .catch((error) => {
-                            res.status(500).json({
-                                error: error,
-                            })
-                        })
-                })
-
+            const salt = await bcrypt.genSalt(10)
+            const hashPassword = await bcrypt.hash(password, salt)
+            const response = new UserModel({
+                employeeId: verifyEmployee._id,
+                phoneNumber: verifyEmployee.phoneNumber,
+                role: role,
+                password: hashPassword,
+            })
+            verifyEmployee.role = role
+            verifyEmployee.save()
+            return res.status(201).json({
+                message: 'user successfully created!',
+                response,
+                success: true
+            })
         }
     } catch (error) {
         return res.status(412).send({
