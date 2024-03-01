@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 
 //Importing JWT from Json Web Token package
 import jwt from "jsonwebtoken";
-export const JWT_SECRET= "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUZ3d0RRWUpLb1pJaHZjTkFRRUJCUUFEU3dBd1NBSkJBTlFLQStSV2ZQZFdHR25iYS9WRVo1TUs5cG1nMUlQawovaWhBOXVxdjcvKzVZc0YzVFVEaHFHZXN1bGJhdFFGdkNPaHVmSlNJQmFWT3RjbVZrTWZoWmRrQ0F3RUFBUT09Ci0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQ"
 
 //Importing the bcrypt package
 import bcrypt from "bcrypt";
@@ -40,7 +39,7 @@ export const login = async (req: Request, res: Response) => {
 
           },
           //Signign the token with the JWT_SECRET in the .env
-          JWT_SECRET as string,
+          process.env.JWT_SECRET as string,
           {
             expiresIn: "24h",
           }
