@@ -1,6 +1,6 @@
 import app from './app';
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 // Import DB Config
 import { connectToDB } from "./config/db_config";
 
