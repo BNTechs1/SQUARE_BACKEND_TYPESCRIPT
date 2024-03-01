@@ -28,7 +28,7 @@ export const login = async (req: Request, res: Response) => {
 
   const accessToken = signJwt(
     toBeSignedData,
-    process.env.JWT_ACCESS_SECRET as string,
+    process.env.JWT_SECRET as string,
     {
         expiresIn: "3d"
     })
