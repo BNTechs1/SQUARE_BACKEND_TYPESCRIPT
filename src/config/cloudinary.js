@@ -2,7 +2,7 @@ import { v2 as cloudinary } from "cloudinary";
 import { config } from "dotenv";
 config();
 const CLOUD_NAME = "dphh50qtv"
-cosnt CLOUDINARY_API_KEY = "891473819878183"
+const CLOUDINARY_API_KEY = "891473819878183"
 const CLOUDINARY_API_SECRET = "lsTqPXkv87kiCbpciYfdXmMBw4E"
 
 cloudinary.config({
