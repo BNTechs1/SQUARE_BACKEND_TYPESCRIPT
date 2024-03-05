@@ -24,7 +24,7 @@ const router = express.Router();
 //POST API TO CHANGE THE STATUS OF A TAB TO COMPLETED
 router.post("/create-options", authJWT, upload.array("files", 10), createOptions); 
 
-router.get("/get-options", authJWT, getOptions); 
+router.get("/get-options",  getOptions); 
 
 router.get("/get-options/:id", authJWT, getOption); 
 
