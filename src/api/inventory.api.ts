@@ -8,6 +8,7 @@ import {
   // deleteInventory,
   allocateDailyValue,
   stack,
+  transform,
   deleteInventory
   // filterStack,
 } from "../controller/inventory/index.inventory.controller";
@@ -17,6 +18,7 @@ const router = express.Router();
 
 router.post("/create", create);
 router.post("/stack/:id", authJWT, stack);
+router.post("/transform",authJWT, transform)
 router.get("/get", getinventories);
 router.get("/show/:id", getinventory);
 router.get("/show/purchases/:id", getPurchases);
@@ -24,5 +26,6 @@ router.get("/show/purchases/:id", getPurchases);
 router.post("/allocate", allocateDailyValue);
 router.put("/update/:id", update);
 router.delete("/delete/:id", deleteInventory);
+
 
 export default router;

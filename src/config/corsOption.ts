@@ -1,5 +1,5 @@
 import cors from 'cors'
-const allowedOrigins: string[] = ["https://sys.squarepizzaet.com"];
+const allowedOrigins: string[] = ["https://sys.squarepizzaet.com", "http://localhost:3000"];
 
 export const corsOptions: cors.CorsOptions = {
     origin: (origin: string | undefined, callback: (error: Error | null, allow?: boolean) => void) => {
