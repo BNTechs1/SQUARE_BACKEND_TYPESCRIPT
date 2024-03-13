@@ -17,8 +17,8 @@ import { authJWT } from "../middleware/authJWT";
 const router = express.Router();
 
 router.post("/create", create);
-router.post("/stack/:id", authJWT, stack);
-router.post("/transform",authJWT, transform)
+router.post("/stack/:id",  stack);
+router.post("/transform", transform)
 router.get("/get", getinventories);
 router.get("/show/:id", getinventory);
 router.get("/show/purchases/:id", getPurchases);
