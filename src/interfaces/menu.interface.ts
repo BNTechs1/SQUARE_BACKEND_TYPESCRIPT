@@ -11,7 +11,7 @@ export interface Recipe {
 }
 
 export interface IMenu extends Document {
-  _id: Object;
+  _id: any;
   name: string;
   description: string;
   size: string;

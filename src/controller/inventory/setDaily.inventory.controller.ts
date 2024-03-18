@@ -9,9 +9,10 @@ export const allocateDailyValue = async (req: Request, res: Response) => {
     const itemsWithExceedingValue: string[] = []; // Array to hold IDs of items with exceeding value
     for (const itemId in allocationData) {
       console.log("itemId", itemId)
-      if (allocationData.hasOwnProperty(itemId)) {
+      if (itemId in allocationData) {
         const dailyValue = allocationData[itemId];
-
+        // Your code here
+  
         // Find the item by ID
         const item = await InventoryModel.findById(itemId);
 

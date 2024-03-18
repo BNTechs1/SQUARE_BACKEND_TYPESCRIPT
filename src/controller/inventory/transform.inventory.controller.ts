@@ -34,7 +34,7 @@ export const transform = async (req: Request, res: Response) => {
     await deductibleInventory.save();
 
     // Increment value in incrementable inventory
-    incrementableInventory.value += incrementedValue;;
+    incrementableInventory.value += incrementedValue;
     await incrementableInventory.save();
 
     return res.status(200).json({ message: "Transformation successful." });
