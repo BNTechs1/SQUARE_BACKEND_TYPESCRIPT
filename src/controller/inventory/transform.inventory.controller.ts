@@ -25,16 +25,16 @@ export const transform = async (req: Request, res: Response) => {
     }
 
     // Check if there is enough quantity in the deductible inventory
-    if (deductibleInventory.quantity < deductedValue) {
+    if (deductibleInventory.value < deductedValue) {
       return res.status(400).json({ message: "Insufficient quantity." });
     }
 
     // Deduct value from deductible inventory
-    deductibleInventory.quantity -= deductedValue;
+    deductibleInventory.value -= deductedValue;
     await deductibleInventory.save();
 
     // Increment value in incrementable inventory
-    incrementableInventory.quantity += incrementedValue;
+    incrementableInventory.value += incrementedValue;;
     await incrementableInventory.save();
 
     return res.status(200).json({ message: "Transformation successful." });

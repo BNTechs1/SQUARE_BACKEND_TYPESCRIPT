@@ -2,12 +2,11 @@
   "name": "ats_backend",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/src/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "tsc && node dist/src/index.js",
+    "start": "tsc && node dist/index.js",
     "dev": "nodemon index.ts",
-    "build": "tsc",
-    "prebuild": "npm install typescript",
+    "build": "npm run lint && tsc",
     "lint": "eslint . --ext .ts",
     "test": "jest"
   },

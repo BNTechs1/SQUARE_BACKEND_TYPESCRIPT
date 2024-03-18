@@ -16,16 +16,16 @@ export const authJWT = (
   res: Response,
   next: NextFunction
 ) => {
-  console.log("process.env.JWT_SECRET as string", JWT_SECRET as string)
+  console.log("process.env.JWT_SECRET as string", process.env.JWT_SECRET as string)
   try {
     const token = req.headers.authorization?.replace("Bearer ", "");
     
     const decoded = jwt.verify(
       token ? token : "",
-      JWT_SECRET as string
+      process.env.JWT_SECRET as string
     );
     req.userData = decoded;
-    // console.log(req.userData);
+    console.log(req.userData);
     next();
   } catch (err) {
     return res.status(403).json({

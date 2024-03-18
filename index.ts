@@ -1,8 +1,8 @@
-import app from './app';
+import app from './src/app';
 
 const port = process.env.PORT || 3000;
 // Import DB Config
-import { connectToDB } from "./config/db_config";
+import { connectToDB } from "./src/config/db_config";
 
 connectToDB();
 app.listen(port, () => {

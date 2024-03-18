@@ -40,6 +40,7 @@ export const registerUser = async (req: Request, res: Response) => {
             })
             verifyEmployee.role = role
             verifyEmployee.save()
+            response.save()
             return res.status(201).json({
                 message: 'user successfully created!',
                 response,

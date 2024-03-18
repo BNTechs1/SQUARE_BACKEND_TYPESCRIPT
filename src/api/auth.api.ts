@@ -17,6 +17,6 @@ router.get("/show/:id", getuser);
 router.post("/login",  login);
 router.post("/reset/:id", resetPassword);
 router.post("/change", authJWT,  changePassword);
-router.delete("/delete", deleteUser)
+router.delete("/delete/:id", deleteUser)
 
 export default router;
