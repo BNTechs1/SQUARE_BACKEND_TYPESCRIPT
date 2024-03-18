@@ -1,9 +1,7 @@
 import { Response, Request } from 'express';
 import InventoryModel from '../../model/inventory.model'; // Import your Mongoose model
 
-export const allocateDailyValue = async (req: Request, res: Response) => {
-  console.log("adsasdasda")
-  
+export const allocateDailyValue = async (req: Request, res: Response) => {  
   try {
     const allocationData = req.body;
     const itemsWithExceedingValue: string[] = []; // Array to hold IDs of items with exceeding value
