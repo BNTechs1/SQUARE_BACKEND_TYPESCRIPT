@@ -1,20 +1,25 @@
 import mongoose from "mongoose";
-// const MONGO_DB_URI =
-//   process.env.MONGO_REMOTE_URL || process.env.MONGO_LOCAL_URL;
+import { config } from "dotenv";
+
+// Initialize environment variables
+config();
+
+const MONGO_DB_URI = process.env.MONGO_REMOTE_URL || process.env.MONGO_LOCAL_URL;
 
 export const connectToDB = async () => {
   try {
+    if (!MONGO_DB_URI) {
+      throw new Error("MongoDB URI is not defined in environment variables");
+    }
+
     console.log("Connecting to MongoDB ......");
-    const DBConnection = await mongoose.connect(
-      "mongodb+srv://squarepizzaet:InOdCCcKSYCN4KZ0@squarepizza.boiswjb.mongodb.net/",
-      
-    );
+    const DBConnection = await mongoose.connect(MONGO_DB_URI);
 
     console.log(`Database Connected : ${DBConnection.connection.host}`);
   } catch (error) {
+    console.error("Error connecting to MongoDB", error);
     process.exit(1);
   }
 };
 
-
-export const JWT_SECRET = "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUZ3d0RRWUpLb1pJaHZjTkFRRUJCUUFEU3dBd1NBSkJBTlFLQStSV2ZQZFdHR25iYS9WRVo1TUs5cG1nMUlQawovaWhBOXVxdjcvKzVZc0YzVFVEaHFHZXN1bGJhdFFGdkNPaHVmSlNJQmFWT3RjbVZrTWZoWmRrQ0F3RUFBUT09Ci0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQ"
+export const JWT_SECRET = process.env.JWT_SECRET || "default_jwt_secret_key";
